@@ -42,9 +42,9 @@ public class LibraryController {
     }
 
     //add book
-    @PostMapping("/add/book")
-    public void addBook(@RequestBody Book book) {
-        libraryService.addBook(book);
+    @PostMapping("/add/books")
+    public void addBook(@RequestBody List<Book> books) {
+        libraryService.addBook(books);
     }
 
     //add book
@@ -59,5 +59,13 @@ public class LibraryController {
         return libraryService.deleteBookById(id);
     }
 
+    @PutMapping("/update/book")
+    public Book updateBook(@RequestBody Book book){
+        return libraryService.updateBookById(book);
+    }
 
+    @PostMapping("/borrow")
+    public void borrowBook(@RequestParam Long userId, @RequestParam Long bookId) {
+        libraryService.borrowBook(userId, bookId);
+    }
 }

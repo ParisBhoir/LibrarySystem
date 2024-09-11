@@ -44,9 +44,10 @@ public class LibraryService {
         return authorRepository.findAll();
     }
 
-    public void addBook(Book book) {
-        bookRepository.save(book);
-
+    public void addBook(List<Book> books) {
+        for (Book book : books){
+            addBookWithAuthor(book);
+        }
     }
 
     @Transactional
@@ -72,11 +73,19 @@ public class LibraryService {
     }
 
 
-
+    public void borrowBook(Long userId, Long bookId) {
+        // Implement borrowing logic here
+        // For example, check if the book is available and update BorrowRecord
+    }
 
     public Optional<Book> deleteBookById(Long id) {
         Optional<Book> book = bookRepository.findById(id);
         bookRepository.deleteById(id);
+        return book;
+    }
+
+    public Book updateBookById(Book book) {
+        bookRepository.save(book);
         return book;
     }
 }

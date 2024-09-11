@@ -10,6 +10,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
     private Long id;
+    @Column(unique = true)
     private String title;
     private int numberOfCopies;
 
