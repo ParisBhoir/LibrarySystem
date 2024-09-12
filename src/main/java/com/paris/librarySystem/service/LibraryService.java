@@ -72,12 +72,6 @@ public class LibraryService {
         return bookRepository.save(book);
     }
 
-
-    public void borrowBook(Long userId, Long bookId) {
-        // Implement borrowing logic here
-        // For example, check if the book is available and update BorrowRecord
-    }
-
     public Optional<Book> deleteBookById(Long id) {
         Optional<Book> book = bookRepository.findById(id);
         bookRepository.deleteById(id);
@@ -88,4 +82,10 @@ public class LibraryService {
         bookRepository.save(book);
         return book;
     }
+
+    public void borrowBook(Long userId, Long bookId) {
+        // Implement borrowing logic here
+        // For example, check if the book is available and update BorrowRecord
+    }
+
 }

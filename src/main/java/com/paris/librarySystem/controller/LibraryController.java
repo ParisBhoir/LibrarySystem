@@ -18,48 +18,50 @@ public class LibraryController {
     private LibraryService libraryService;
 
     //fetch all Authors
-    @GetMapping("/get/authors")
+    @GetMapping("/authors")
     public List<Author> getAllAuthors() {
         return libraryService.getAllAuthors();
     }
 
     //fetch all the books
-    @GetMapping("/get/books")
+    @GetMapping("/books")
     public List<Book> getAllBooks() {
         return libraryService.getAllBooks();
     }
 
     //fetch book by title
-    @GetMapping("/get/book/{title}")
+    @GetMapping("/book/{title}")
     public Book getAllBookByTitle(@PathVariable String title){
         return libraryService.getBookByTitle(title);
     }
 
     //fetch books by author
-    @GetMapping("/get/books/{name}")
+    @GetMapping("/books/{name}")
     public List<Book> getAllBooksByAuthorName(@PathVariable String name){
         return libraryService.getBooksByAuthorName(name);
     }
 
-    //add book
-    @PostMapping("/add/books")
+    //add books
+    @PostMapping("/books")
     public void addBook(@RequestBody List<Book> books) {
         libraryService.addBook(books);
     }
 
     //add book
-    @PostMapping("/add/bookWithAuthor")
+    @PostMapping("/bookWithAuthor")
     public ResponseEntity<Book> addBookWithAuthor(@RequestBody Book book) {
         Book createdBook = libraryService.addBookWithAuthor(book);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdBook);
     }
 
-    @DeleteMapping("/delete/book/{id}")
+    //delete book
+    @DeleteMapping("/book/{id}")
     public Optional<Book> deleteBook(@PathVariable Long id){
         return libraryService.deleteBookById(id);
     }
 
-    @PutMapping("/update/book")
+    //update book
+    @PutMapping("/book")
     public Book updateBook(@RequestBody Book book){
         return libraryService.updateBookById(book);
     }
