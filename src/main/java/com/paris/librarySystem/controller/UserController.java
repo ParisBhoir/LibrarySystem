@@ -41,7 +41,7 @@ public class UserController {
         return userService.updateUSer(user);
     }
 
-    @GetMapping("/borrow-records/{id}")
+    @GetMapping("/borrowRecords/{id}")
     public List<BorrowRecord> getUserBorrowRecords(@PathVariable Long id) {
         return userService.getUserBorrowRecords(id);
     }
