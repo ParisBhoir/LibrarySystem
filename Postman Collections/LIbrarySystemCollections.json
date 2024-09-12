@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "aaf79274-3f2a-45b0-a675-df15e1798abe",
+		"name": "Library System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LibraryAPIs",
+			"item": [
+				{
+					"name": "getAuthors",
+					"id": "aafc8502-5dcb-4981-9ca3-5c1f7534684c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/library/authors"
+					},
+					"response": []
+				},
+				{
+					"name": "AllBooks",
+					"id": "af7a45c3-46c5-4829-a026-a064f62cd9d3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/library/books"
+					},
+					"response": []
+				},
+				{
+					"name": "booksbyAuthorName",
+					"id": "6fe27478-f48f-4b9f-b051-35066aa8c83d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/library/books/F. Scott Fitzgerald"
+					},
+					"response": []
+				},
+				{
+					"name": "getBookByTitle",
+					"id": "78165f00-ab31-4df6-b332-9c62fed5fb50",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/library/book/About Grace"
+					},
+					"response": []
+				},
+				{
+					"name": "addBooks",
+					"id": "b45ee427-d0e4-42c9-955b-2c492b8d8419",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"numberOfCopies\":2, \"title\":\"All the Light We Cannot See\", \"author\": {\"name\":\"Anthony Doerr\"}},\r\n {\"numberOfCopies\":3, \"title\":\"Cloud Cuckoo Land\", \"author\": {\"name\":\"Anthony Doerr\"}},\r\n {\"numberOfCopies\":5, \"title\":\"The Great Gatsby\", \"author\": {\"name\":\"F. Scott Fitzgerald\"}},\r\n {\"numberOfCopies\":3, \"title\":\"This Side of Paradise\", \"author\": {\"name\":\"F. Scott Fitzgerald\"}},\r\n {\"numberOfCopies\":6, \"title\":\"The Beautiful and Damned\", \"author\": {\"name\":\"F. Scott Fitzgerald\"}},\r\n {\"numberOfCopies\":6, \"title\":\"About Grace\", \"author\": {\"name\":\"Anthony Doerr\"}},\r\n {\"numberOfCopies\":4, \"title\":\"Lifetime\", \"author\": {\"name\":\"Anthony Doerr\"}}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/library/books"
+					},
+					"response": []
+				},
+				{
+					"name": "addbooksWithAuthor",
+					"id": "fa5347b7-e8a7-42cc-bf85-4cb18e57eaa0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"title\" : \"La Galatea\",\r\n    \"numberOfCopies\" : \"4\",\r\n    \"author\": {\r\n        \"name\": \"Miguel de Cervantes\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/library/bookWithAuthor"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBook",
+					"id": "6d92fb24-58a0-4ec3-b6fe-9daef485474c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/library/book/5"
+					},
+					"response": []
+				},
+				{
+					"name": "updateBook",
+					"id": "e2f6e09e-b5c2-414e-b2b1-8b7a5ae5d044",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 7,\r\n    \"title\": \"Lifetimes\",\r\n    \"numberOfCopies\": 7,\r\n    \"author\": {\r\n        \"id\" : 1, \r\n        \"name\": \"Anthony Doerr\"  \r\n    }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/library/book"
+					},
+					"response": []
+				},
+				{
+					"name": "libraryBorrowRecords",
+					"id": "94f7b4c4-3d97-4a3b-ad00-67def94f37c6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/library/borrowRecords"
+					},
+					"response": []
+				},
+				{
+					"name": "libraryBorrow",
+					"id": "dce03249-3ab0-4665-8abf-337860662c53",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/library/borrow?userId=4&bookId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"library",
+								"borrow"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "4"
+								},
+								{
+									"key": "bookId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "libraryReturn",
+					"id": "21539a5b-61b6-4c22-a6ed-b7092a002392",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/library/return?userId=4&bookId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"library",
+								"return"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "4"
+								},
+								{
+									"key": "bookId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "e9945057-b44c-46c9-9d2a-49709fdba01c"
+		},
+		{
+			"name": "UserAPIs",
+			"item": [
+				{
+					"name": "AllUsers",
+					"id": "5e876161-43fa-4738-88c5-c84c00c6ca46",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "userById",
+					"id": "a7b54929-4ef5-473f-ac33-c80d4753d525",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/user/1"
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"id": "f9b57eb4-bd1d-4168-8ab7-35dbd494c1ee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 3,\r\n    \"name\" : \"Sahil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"id": "7559c6c6-c41c-4dda-a2f7-196347b6f51e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/user/5"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"id": "c10debb9-cf27-44bf-8fad-b7ac514e93e3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 6,\r\n    \"name\" : \"Sachin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "userBorrowRecords",
+					"id": "10a08376-3b52-49ae-b0fb-82957cf90d7a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/user/borrowRecords/6"
+					},
+					"response": []
+				},
+				{
+					"name": "userBorrow",
+					"id": "372c96ca-3a04-4951-bf0d-816dcbc1dafa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/user/borrow?userId=4&bookId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"borrow"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "4"
+								},
+								{
+									"key": "bookId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userReturn",
+					"id": "21c5e651-6346-430e-a8f7-38fb82c88250",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/user/return?userId=4&bookId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"return"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "4"
+								},
+								{
+									"key": "bookId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "f1bd7354-5beb-4e31-8ad4-0c6e9b672974"
+		}
+	]
+}
