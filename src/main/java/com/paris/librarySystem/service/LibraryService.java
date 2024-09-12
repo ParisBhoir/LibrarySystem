@@ -3,10 +3,13 @@ package com.paris.librarySystem.service;
 import com.paris.librarySystem.dao.*;
 import com.paris.librarySystem.model.Author;
 import com.paris.librarySystem.model.Book;
+import com.paris.librarySystem.model.BorrowRecord;
+import com.paris.librarySystem.model.User;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,9 +86,37 @@ public class LibraryService {
         return book;
     }
 
-    public void borrowBook(Long userId, Long bookId) {
-        // Implement borrowing logic here
-        // For example, check if the book is available and update BorrowRecord
+    public List<BorrowRecord> getAllRecords() {
+        return borrowRecordRepository.findAll();
     }
 
+    public Optional<Book> borrowBook(Long userId, Long bookId) {
+        Optional<User> userOpt = userRepository.findById(userId);
+        Optional<Book> bookOpt = bookRepository.findById(bookId);
+
+        if (userOpt.isPresent() && bookOpt.isPresent()){
+            User user = userOpt.get();
+            Book book = bookOpt.get();
+
+            if (book.getNumberOfCopies() > 0){
+                book.setNumberOfCopies(book.getNumberOfCopies()-1);
+                bookRepository.save(book);
+
+                BorrowRecord record = new BorrowRecord();
+                record.setBook(book);
+                record.setUser(user);
+                record.setBorrowDateTime(LocalDateTime.now());
+                borrowRecordRepository.save(record);
+                System.out.println("Book borrowed sucessfully");
+            }else {
+                System.out.println("Book is not available currently");
+                throw new IllegalArgumentException("Book is not available currently");
+            }
+
+        }else {
+            System.out.println("Book or user not found");
+            throw new IllegalArgumentException("Book or user not found");
+        }
+        return bookOpt;
+    }
 }

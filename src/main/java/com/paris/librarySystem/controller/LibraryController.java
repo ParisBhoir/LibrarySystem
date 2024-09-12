@@ -2,6 +2,7 @@ package com.paris.librarySystem.controller;
 
 import com.paris.librarySystem.model.Author;
 import com.paris.librarySystem.model.Book;
+import com.paris.librarySystem.model.BorrowRecord;
 import com.paris.librarySystem.service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -66,8 +67,13 @@ public class LibraryController {
         return libraryService.updateBookById(book);
     }
 
-    @PostMapping("/borrow")
-    public void borrowBook(@RequestParam Long userId, @RequestParam Long bookId) {
-        libraryService.borrowBook(userId, bookId);
+    @GetMapping("/borrowRecords")
+    public List<BorrowRecord> getAllRecords(){
+        return libraryService.getAllRecords();
+    }
+
+    @GetMapping("/borrow")
+    public Optional<Book> borrowBook(@RequestParam Long userId, @RequestParam Long bookId) {
+        return libraryService.borrowBook(userId, bookId);
     }
 }
