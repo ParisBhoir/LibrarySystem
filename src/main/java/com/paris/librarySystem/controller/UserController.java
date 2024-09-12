@@ -50,4 +50,9 @@ public class UserController {
     public Optional<Book> borrowBook(@RequestParam Long userId, @RequestParam Long bookId) {
         return userService.borrowBook(userId, bookId);
     }
+
+    @PutMapping("/return")
+    public void returnBook(@RequestParam Long userId, @RequestParam Long bookId){
+        userService.returnBook(userId, bookId);
+    }
 }

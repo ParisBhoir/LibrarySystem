@@ -50,4 +50,8 @@ public class UserService {
     public Optional<Book> borrowBook(Long userId, Long bookId) {
         return libraryController.borrowBook(userId, bookId);
     }
+
+    public void returnBook(Long userId, Long bookId) {
+        libraryController.returnBook(userId, bookId);
+    }
 }
