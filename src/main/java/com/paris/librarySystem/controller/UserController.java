@@ -1,5 +1,7 @@
 package com.paris.librarySystem.controller;
 
+import com.paris.librarySystem.model.Book;
+import com.paris.librarySystem.model.BorrowRecord;
 import com.paris.librarySystem.model.User;
 import com.paris.librarySystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +39,15 @@ public class UserController {
     @PutMapping
     public User updateUser(@RequestBody User user){
         return userService.updateUSer(user);
+    }
+
+    @GetMapping("/borrow-records/{id}")
+    public List<BorrowRecord> getUserBorrowRecords(@PathVariable Long id) {
+        return userService.getUserBorrowRecords(id);
+    }
+
+    @GetMapping("/borrow")
+    public Optional<Book> borrowBook(@RequestParam Long userId, @RequestParam Long bookId) {
+        return userService.borrowBook(userId, bookId);
     }
 }

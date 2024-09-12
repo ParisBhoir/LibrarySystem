@@ -1,7 +1,10 @@
 package com.paris.librarySystem.service;
 
+import com.paris.librarySystem.controller.LibraryController;
 import com.paris.librarySystem.dao.BorrowRecordRepository;
 import com.paris.librarySystem.dao.UserRepository;
+import com.paris.librarySystem.model.Book;
+import com.paris.librarySystem.model.BorrowRecord;
 import com.paris.librarySystem.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,9 @@ public class UserService {
 
     @Autowired
     private BorrowRecordRepository borrowRecordRepository;
+
+    @Autowired
+    private LibraryController libraryController;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -35,5 +41,13 @@ public class UserService {
 
     public User updateUSer(User user) {
         return userRepository.save(user);
+    }
+
+    public List<BorrowRecord> getUserBorrowRecords(Long id) {
+        return borrowRecordRepository.findByUserId(id);
+    }
+
+    public Optional<Book> borrowBook(Long userId, Long bookId) {
+        return libraryController.borrowBook(userId, bookId);
     }
 }
