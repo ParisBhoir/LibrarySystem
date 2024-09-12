@@ -76,4 +76,9 @@ public class LibraryController {
     public Optional<Book> borrowBook(@RequestParam Long userId, @RequestParam Long bookId) {
         return libraryService.borrowBook(userId, bookId);
     }
+
+    @PutMapping("/return")
+    public void returnBook(@RequestParam Long userId, @RequestParam Long bookId){
+        libraryService.returnBook(userId, bookId);
+    }
 }

@@ -90,6 +90,8 @@ public class LibraryService {
         return borrowRecordRepository.findAll();
     }
 
+
+
     public Optional<Book> borrowBook(Long userId, Long bookId) {
         Optional<User> userOpt = userRepository.findById(userId);
         Optional<Book> bookOpt = bookRepository.findById(bookId);
@@ -118,5 +120,27 @@ public class LibraryService {
             throw new IllegalArgumentException("Book or user not found");
         }
         return bookOpt;
+    }
+
+    public void returnBook(long userId, long bookId) {
+        Optional<BorrowRecord> record = borrowRecordRepository.findByUserIdAndBookId(userId,bookId);
+
+        if (record.isPresent()){
+            Optional<Book> bookopt =bookRepository.findById(bookId);
+            if (bookopt.isPresent()){
+                Book book = bookopt.get();
+                book.setNumberOfCopies(book.getNumberOfCopies()+1);
+
+                borrowRecordRepository.delete(record.get());
+                System.out.println("Book Returned");
+            }else {
+                System.out.println("Book not found but record present");
+                throw new IllegalArgumentException("Book not found but record present");
+            }
+
+        }else {
+            System.out.println("Book or user BorrowRecord not found");
+            throw new IllegalArgumentException("Book or user BorrowRecord not found");
+        }
     }
 }
