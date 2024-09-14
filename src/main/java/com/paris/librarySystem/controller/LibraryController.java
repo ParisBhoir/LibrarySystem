@@ -67,16 +67,19 @@ public class LibraryController {
         return libraryService.updateBookById(book);
     }
 
+    //fetch all records
     @GetMapping("/borrowRecords")
     public List<BorrowRecord> getAllRecords(){
         return libraryService.getAllRecords();
     }
 
+    //Borrow Book
     @GetMapping("/borrow")
     public Optional<Book> borrowBook(@RequestParam Long userId, @RequestParam Long bookId) {
         return libraryService.borrowBook(userId, bookId);
     }
 
+    //return book
     @PutMapping("/return")
     public void returnBook(@RequestParam Long userId, @RequestParam Long bookId){
         libraryService.returnBook(userId, bookId);

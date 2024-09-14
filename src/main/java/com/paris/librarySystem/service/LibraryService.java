@@ -1,11 +1,7 @@
 package com.paris.librarySystem.service;
 
 import com.paris.librarySystem.dao.*;
-import com.paris.librarySystem.model.Author;
-import com.paris.librarySystem.model.Book;
-import com.paris.librarySystem.model.BorrowRecord;
-import com.paris.librarySystem.model.User;
-import jakarta.transaction.Transactional;
+import com.paris.librarySystem.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,21 +49,18 @@ public class LibraryService {
         }
     }
 
-    @Transactional
+
     public Book addBookWithAuthor(Book book) {
         Author author = book.getAuthor();
 
         if (author.getId() == null) {
-            // Check if author already exists by name
             Optional<Author> existingAuthor = authorRepository.findByName(author.getName());
             if (existingAuthor.isPresent()) {
                 book.setAuthor(existingAuthor.get());
             } else {
-                // Create a new author
                 authorRepository.save(author);
             }
         } else {
-            // Fetch the existing author by ID
             Optional<Author> existingAuthor = authorRepository.findById(author.getId());
             existingAuthor.ifPresent(book::setAuthor);
         }
