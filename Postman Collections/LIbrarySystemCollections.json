@@ -93,7 +93,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{   \r\n    \"title\" : \"La Galatea\",\r\n    \"numberOfCopies\" : \"4\",\r\n    \"author\": {\r\n        \"name\": \"Miguel de Cervantes\"\r\n    }\r\n}",
+							"raw": "{   \r\n    \"title\" : \"The delusive marriage\",\r\n    \"numberOfCopies\" : \"8\",\r\n    \"author\": {\r\n        \"name\": \"Miguel de Cervantes\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -171,7 +171,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/library/borrow?userId=4&bookId=1",
+							"raw": "http://localhost:8080/library/borrow?userId=6&bookId=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -184,11 +184,11 @@
 							"query": [
 								{
 									"key": "userId",
-									"value": "4"
+									"value": "6"
 								},
 								{
 									"key": "bookId",
-									"value": "1"
+									"value": "10"
 								}
 							]
 						}
@@ -205,7 +205,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/library/return?userId=4&bookId=1",
+							"raw": "http://localhost:8080/library/return?userId=6&bookId=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -218,11 +218,11 @@
 							"query": [
 								{
 									"key": "userId",
-									"value": "4"
+									"value": "6"
 								},
 								{
 									"key": "bookId",
-									"value": "1"
+									"value": "10"
 								}
 							]
 						}
