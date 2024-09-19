@@ -272,7 +272,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\" : 3,\r\n    \"name\" : \"Sahil\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Prabhu\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
