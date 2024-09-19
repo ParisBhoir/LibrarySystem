@@ -171,7 +171,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/library/borrow?userId=6&bookId=10",
+							"raw": "http://localhost:8080/library/borrow?userId=3&bookId=7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -184,11 +184,11 @@
 							"query": [
 								{
 									"key": "userId",
-									"value": "6"
+									"value": "3"
 								},
 								{
 									"key": "bookId",
-									"value": "10"
+									"value": "7"
 								}
 							]
 						}
@@ -205,7 +205,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/library/return?userId=6&bookId=10",
+							"raw": "http://localhost:8080/library/return?userId=3&bookId=7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -218,11 +218,11 @@
 							"query": [
 								{
 									"key": "userId",
-									"value": "6"
+									"value": "3"
 								},
 								{
 									"key": "bookId",
-									"value": "10"
+									"value": "7"
 								}
 							]
 						}
@@ -341,7 +341,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/user/borrow?userId=4&bookId=1",
+							"raw": "http://localhost:8080/user/borrow?userId=3&bookId=7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -354,11 +354,11 @@
 							"query": [
 								{
 									"key": "userId",
-									"value": "4"
+									"value": "3"
 								},
 								{
 									"key": "bookId",
-									"value": "1"
+									"value": "7"
 								}
 							]
 						}
@@ -375,7 +375,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/user/return?userId=4&bookId=1",
+							"raw": "http://localhost:8080/user/return?userId=3&bookId=7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -388,11 +388,11 @@
 							"query": [
 								{
 									"key": "userId",
-									"value": "4"
+									"value": "3"
 								},
 								{
 									"key": "bookId",
-									"value": "1"
+									"value": "7"
 								}
 							]
 						}
